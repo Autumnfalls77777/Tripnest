@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Added viewport -->
+    <title>Dashboard | TripNest</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- Changed to style.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Background layers -->
+    <div class="bg-sunset"></div>
+    <div class="bg-map"></div>
+    <div class="bg-noise"></div>
+
+    <div class="app">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div style="margin-bottom:44px;">
+          <h2 class="logo" style="background:linear-gradient(135deg,#FF9F1C,#FF4D6D);-webkit-background-clip:text;color:transparent;margin-bottom:4px;">TripNest</h2>
+          <span style="font-size:11px;opacity:0.4;font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Smart Travel</span>
+        </div>
+
+        <nav>
+          <a class="nav-link active" data-view="view-dashboard"
+            ><i class="fa fa-home"></i> Dashboard</a
+          >
+          <a class="nav-link" data-view="view-trips"
+            ><i class="fa fa-map"></i> Trips</a
+          >
+          <a class="nav-link" data-view="view-stays"><i class="fa fa-hotel"></i> Stays</a>
+          <a class="nav-link" data-view="view-profile"><i class="fa fa-user"></i> Profile</a>
+          <a id="dashLogoutBtn" style="margin-top: auto; color: #ff4d6d"
+            ><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a
+          >
+        </nav>
+      </aside>
+
+      <!-- Main Area -->
+      <main class="main">
+        <!-- Top Bar -->
+        <header class="topbar">
+          <button onclick="history.back()" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <input type="text" id="dashboardSearchInput" placeholder="Search destinations..." />
+
+          <div class="user-box">
+            <span id="dashProfileName">Prateek</span>
+            <img
+              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              id="dashProfileImg"
+            />
+          </div>
+        </header>
+
+        <!-- VIEW: Dashboard Overview -->
+        <div id="view-dashboard" class="view-section">
+          <section class="dashboard" style="animation: fadeInUp 0.5s ease both;">
+            <!-- Stats -->
+            <div class="stats">
+              <div class="card">
+                <div class="card-icon" style="color: #ff9f1c">
+                  <i class="fa-solid fa-bookmark"></i>
+                </div>
+                <h3>Saved Trips</h3>
+                <p id="savedTripsCount">0</p>
+              </div>
+
+              <div class="card">
+                <div class="card-icon" style="color: #2ec4b6">
+                  <i class="fa-solid fa-plane-departure"></i>
+                </div>
+                <h3>Upcoming Trips</h3>
+                <p id="upcomingTripsCount">0</p>
+              </div>
+
+              <div class="card">
+                <div class="card-icon" style="color: #ff4d6d">
+                  <i class="fa-solid fa-hotel"></i>
+                </div>
+                <h3>Hotels</h3>
+                <p id="savedHotelsCount">0</p>
+              </div>
+            </div>
+
+            <!-- Map + Info -->
+            <div class="grid">
+              <!-- Map -->
+              <div class="map-card">
+                <h3>Travel Map</h3>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+                />
+              </div>
+
+              <!-- Saved Plans Mini List -->
+              <div class="trip-card">
+                <h3>Saved Plans</h3>
+                <ul class="saved-list">
+                  <!-- Placeholder Content, replaced by JS -->
+                  <li>
+                    <div
+                      class="item-info"
+                      style="display: flex; flex-direction: column"
+                    >
+                      <strong>Goa Trip</strong>
+                      <span>Saver • 5 Days</span>
+                    </div>
+                    <span>Jan 2026</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- VIEW: All Trips -->
+    <div id="view-trips" class="view-section" style="display: none;">
+        <h2 style="font-family: 'Space Grotesk'; font-size: 32px; margin-bottom: 30px;">
+            My Saved Trips
+        </h2>
+        
+        <div class="itinerary-grid" id="tripsGrid">
+            <!-- Populated by JS -->
+             <div style="color: #F5E6C8; opacity: 0.5;">No trips found.</div>
+        </div>
+    </div>
+
+    <!-- VIEW: Saved Stays -->
+    <div id="view-stays" class="view-section" style="display: none;">
+        <h2 style="font-family: 'Space Grotesk'; font-size: 32px; margin-bottom: 30px;">
+            My Saved Stays
+        </h2>
+        
+        <div class="itinerary-grid" id="staysGrid">
+             <div style="color: #F5E6C8; opacity: 0.5;">No saved stays.</div>
+        </div>
+    </div>
+
+    <!-- VIEW: Profile -->
+    <div id="view-profile" class="view-section" style="display: none;">
+        
+        <!-- Profile Header -->
+        <div class="profile-header-container">
+            <div class="profile-cover"></div>
+            <div class="profile-avatar-wrapper">
+                <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" id="pAvatarImg">
+                <button class="edit-avatar-btn"><i class="fa-solid fa-camera"></i></button>
+            </div>
+            <div class="profile-title-block">
+                <h2 id="pNameMain">Prateek</h2>
+                <span class="user-badge">Traveller Lvl 1</span>
+            </div>
+            <button class="edit-profile-fab" onclick="openEditProfile()">
+                <i class="fa-solid fa-pen"></i> Edit Profile
+            </button>
+        </div>
+
+        <div class="profile-content-grid">
+            
+            <!-- Left: Personal Details -->
+            <div class="card glass-panel details-card">
+                <h3><i class="fa-regular fa-id-card"></i> Personal Details</h3>
+                
+                <div class="detail-group">
+                    <label>Email</label>
+                    <div id="pEmail" class="val">--</div>
+                </div>
+
+                <div class="detail-group">
+                    <label>Phone</label>
+                    <div id="pPhone" class="val highlight">Not set</div>
+                </div>
+
+                <div class="detail-group">
+                    <label>Address</label>
+                    <div id="pAddress" class="val highlight">Not set</div>
+                </div>
+
+                <div class="marketing-optin">
+                    <i class="fa-regular fa-envelope-open"></i>
+                    <span>Subscribed to Travel Newsletter</span>
+                </div>
+            </div>
+
+            <!-- Right: Rewards & Stats -->
+            <div class="right-stack">
+                <!-- Premium Coupon Card -->
+                <div class="reward-card-premium">
+                    <div class="reward-bg"></div>
+                    <div class="reward-content">
+                        <div class="r-top">
+                            <span>TRIPNEST GOLD</span>
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div class="r-mid">
+                            10% OFF
+                        </div>
+                        <div class="r-bot">
+                            <span>Welcome Bonus</span>
+                            <code class="copy-code">WELCOME10</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legal / Settings -->
+                <div class="card glass-panel settings-card">
+                    <h3>Settings & Privacy</h3>
+                    <a href="#" class="setting-row">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Privacy Policy</span>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </a>
+                    <a href="#" class="setting-row">
+                        <i class="fa-solid fa-file-contract"></i>
+                        <span>Terms of Service</span>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </a>
+                    <a href="#" class="setting-row text-red">
+                        <i class="fa-solid fa-trash"></i>
+                        <span>Delete Account</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+  </main>
+
+  <!-- Edit Profile Modal -->
+  <div id="editProfileModal" class="modal-overlay" style="display: none;">
+    <div class="modal-box premium-modal">
+        <div class="modal-header">
+            <div class="header-icon">
+                <i class="fa-solid fa-user-pen"></i>
+            </div>
+            <div class="header-text">
+                <h3>Edit Profile</h3>
+                <p>Update your personal details below.</p>
+            </div>
+            <button class="close-modal-btn" onclick="closeEditProfile()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <form id="profileForm" class="premium-form">
+            <div class="form-group">
+                <label for="editName">Full Name</label>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" id="editName" placeholder="e.g. John Doe" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="editPhone">Phone Number</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="tel" id="editPhone" placeholder="+1 234 567 8900">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="editAddress">Delivery Address</label>
+                <div class="input-wrapper textarea-wrapper">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <textarea id="editAddress" rows="3" placeholder="Enter your full street address"></textarea>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" onclick="closeEditProfile()">Cancel</button>
+                <button type="submit" class="btn-save">
+                    <i class="fa-solid fa-check"></i> Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+  </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      // Initialize Dashboard logic
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.initDashboard) window.initDashboard();
+      });
+    </script>
+  </body>
+</html>

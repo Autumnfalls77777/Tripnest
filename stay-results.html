@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stays Results | TripNest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Background layers -->
+    <div class="bg-sunset"></div>
+    <div class="bg-map"></div>
+    <div class="bg-noise"></div>
+
+    <!-- Header -->
+    <header class="header">
+      <a
+        href="index.html"
+        class="brand"
+        style="text-decoration: none; color: inherit"
+      >
+        <div class="brand-mark">TN</div>
+        <div class="brand-text">
+          <span class="brand-name">TripNest</span>
+          <span class="brand-sub">Travel • Booking • Stays</span>
+        </div>
+      </a>
+
+      <nav class="toplinks">
+        <a href="find-stays.html" class="signin">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </a>
+        <a href="dashboard.html" class="signin">
+          <i class="fa-solid fa-user"></i> Dashboard
+        </a>
+      </nav>
+    </header>
+
+    <main class="section" style="padding-top: 140px; min-height: 100vh">
+      <div class="section-inner">
+        <div style="text-align: center; margin-bottom: 50px">
+          <p class="micro-title" style="justify-content: center">
+            <span class="dot"></span> BEST STAYS
+          </p>
+          <h1 class="hero-title" style="font-size: 42px">
+            Stays in <span id="stayDestTitle">...</span>
+          </h1>
+          <p class="hero-desc" style="margin: 10px auto 0">
+            For <span id="stayGuests">2</span> guests on
+            <span id="stayDate">...</span>
+          </p>
+        </div>
+
+        <!-- Grid for dynamic results -->
+        <div class="itinerary-grid" id="staysGrid">
+          <!-- Loading State -->
+          <div
+            style="
+              grid-column: 1/-1;
+              text-align: center;
+              color: rgba(245, 230, 200, 0.5);
+              padding: 40px;
+            "
+          >
+            <i
+              class="fa-solid fa-circle-notch fa-spin"
+              style="font-size: 32px"
+            ></i>
+            <p style="margin-top: 15px">Finding best hotels...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+      // Sticky header
+      const header = document.querySelector('.header');
+      if (header) window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+      });
+      // Page-leave fade
+      document.querySelectorAll('a[href]').forEach(a => {
+        if (!a.href.startsWith('#') && a.href !== window.location.href) {
+          a.addEventListener('click', e => {
+            e.preventDefault(); const href = a.href;
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.25s ease';
+            setTimeout(() => { window.location = href; }, 260);
+          });
+        }
+      });
+    </script>
+    <script>
+      // Make sure the proper init function is called if using the main script.js logic
+    </script>
+  </body>
+</html>

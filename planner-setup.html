@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planner Preferences | TripNest</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Flatpickr Dark Theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Background layers -->
+    <div class="bg-sunset"></div>
+    <div class="bg-map"></div>
+    <div class="bg-noise"></div>
+
+    <a href="plan-selection.html" class="back-home">
+      <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+
+    <main
+      class="section"
+      style="
+        padding-top: 60px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div class="auth-card" style="width: 100%; max-width: 600px">
+        <h2>Customize Your Plan</h2>
+        <p>
+          Help us tailor the perfect itinerary for
+          <span id="destName" style="color: #ff9f1c">your trip</span>.
+        </p>
+
+        <form class="auth-form" id="prefForm">
+          <!-- Return Date -->
+          <div class="form-group">
+            <label for="returnDate">Return Date</label>
+            <input
+              type="date"
+              id="returnDate"
+              placeholder="Select Date"
+              required
+            />
+          </div>
+
+          <!-- Budget Selection Removed -->
+
+          <button type="submit" class="auth-btn">
+            Generate Itinerary &nbsp;<i class="fa-solid fa-wand-magic-sparkles"></i>
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+    <script>
+      // Make sure the proper init function is called if using the main script.js logic
+    </script>
+  </body>
+</html>

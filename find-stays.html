@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Stays | TripNest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Background layers -->
+    <div class="bg-sunset"></div>
+    <div class="bg-map"></div>
+    <div class="bg-noise"></div>
+
+    <!-- Header -->
+    <header class="header">
+      <a
+        href="index.html"
+        class="brand"
+        style="text-decoration: none; color: inherit"
+      >
+        <div class="brand-mark">TN</div>
+        <div class="brand-text">
+          <span class="brand-name">TripNest</span>
+          <span class="brand-sub">Travel • Booking • Stays</span>
+        </div>
+      </a>
+
+      <nav class="toplinks">
+        <a href="index.html" class="signin">
+          <i class="fa-solid fa-arrow-left"></i> Home
+        </a>
+      </nav>
+    </header>
+
+    <main class="section" style="padding-top: 140px; min-height: 100vh">
+      <div class="section-inner" style="max-width: 600px; margin: 0 auto">
+        <div style="text-align: center; margin-bottom: 40px">
+          <h1 class="hero-title" style="font-size: 48px">Find Your Stay</h1>
+          <p class="hero-desc" style="margin-top:10px;">
+            Discover luxury hotels, cozy guesthouses, and budget-friendly stays near your destination.
+          </p>
+        </div>
+
+        <div class="auth-card" style="max-width: 100%">
+          <form id="findStaysForm" class="auth-form">
+            <div class="form-group">
+              <label
+                ><i class="fa-solid fa-location-dot"></i> Destination</label
+              >
+              <input
+                type="text"
+                id="stayDestination"
+                placeholder="Where are you going?"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label
+                ><i class="fa-regular fa-calendar"></i> Check-in Date</label
+              >
+              <input
+                type="text"
+                id="checkInDate"
+                placeholder="Select Date"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label><i class="fa-solid fa-user-group"></i> Guests</label>
+              <div class="stepper-wrapper">
+                <button type="button" class="step-btn minus">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <input
+                  type="number"
+                  id="guestCount"
+                  value="2"
+                  min="1"
+                  readonly
+                />
+                <button type="button" class="step-btn plus">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="auth-btn" style="margin-top: 20px">
+              Search Stays &nbsp;<i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+    <script>
+      // Sticky header
+      const header = document.querySelector('.header');
+      if (header) window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+      });
+      // Page-leave fade
+      document.querySelectorAll('a[href]').forEach(a => {
+        if (!a.href.startsWith('#') && a.href !== window.location.href) {
+          a.addEventListener('click', e => {
+            e.preventDefault(); const href = a.href;
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.25s ease';
+            setTimeout(() => { window.location = href; }, 260);
+          });
+        }
+      });
+    </script>
+    <script>
+    document.querySelectorAll('a[href]').forEach(a => {
+      if (!a.href.startsWith('#') && a.href !== window.location.href) {
+        a.addEventListener('click', e => {
+          e.preventDefault(); const href = a.href;
+          document.body.style.opacity = '0';
+          document.body.style.transition = 'opacity 0.25s ease';
+          setTimeout(() => { window.location = href; }, 260);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transport Options | TripNest</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Background layers -->
+    <div class="bg-sunset"></div>
+    <div class="bg-map"></div>
+    <div class="bg-noise"></div>
+
+    <!-- Header -->
+    <header class="header">
+      <a
+        href="index.html"
+        class="brand"
+        style="text-decoration: none; color: inherit"
+      >
+        <div class="brand-mark">TN</div>
+        <div class="brand-text">
+          <span class="brand-name">TripNest</span>
+          <span class="brand-sub">Travel • Booking • Stays</span>
+        </div>
+      </a>
+
+      <nav class="toplinks">
+        <a href="plan-selection.html" class="signin">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </a>
+        <a href="dashboard.html" class="signin">
+          <i class="fa-solid fa-user"></i> Dashboard
+        </a>
+      </nav>
+    </header>
+
+    <main class="section" style="padding-top: 140px; min-height: 100vh">
+      <div class="section-inner" style="text-align: center">
+        <h1 id="transportTitle" class="hero-title" style="font-size: 42px">
+          Choose Your Mode
+        </h1>
+        <p class="hero-desc" style="margin: 10px auto 40px">
+          Select your preferred way to travel to your destination.
+        </p>
+
+        <div
+          class="selection-grid"
+          style="grid-template-columns: repeat(3, 1fr); max-width: 1000px"
+        >
+          <!-- Card 1: Road -->
+          <div class="selection-card" id="optRoad">
+            <div class="sel-icon">
+              <i class="fa-solid fa-road"></i>
+            </div>
+            <h3>Road</h3>
+            <p>
+              Flexible road travel via buses, shared cabs, and self-drive. Best for scenic routes.
+            </p>
+            <div class="sel-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- Card 2: Rail -->
+          <div class="selection-card" id="optRail">
+            <div class="sel-icon">
+              <i class="fa-solid fa-train"></i>
+            </div>
+            <h3>Rail</h3>
+            <p>
+              Comfortable train journeys with panoramic views. Ideal for long-distance travel.
+            </p>
+            <div class="sel-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- Card 3: Air -->
+          <div class="selection-card" id="optAir">
+            <div class="sel-icon">
+              <i class="fa-solid fa-plane"></i>
+            </div>
+            <h3>Air</h3>
+            <p>
+              The fastest option for long distances. Compare domestic and international flights.
+            </p>
+            <div class="sel-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+      // Sticky header
+      const header = document.querySelector('.header');
+      if (header) window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+      });
+      // Page-leave fade
+      document.querySelectorAll('a[href]').forEach(a => {
+        if (!a.href.startsWith('#') && a.href !== window.location.href) {
+          a.addEventListener('click', e => {
+            e.preventDefault(); const href = a.href;
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.25s ease';
+            setTimeout(() => { window.location = href; }, 260);
+          });
+        }
+      });
+    </script>
+    <script>
+      // Initialize transport specific logic if needed, or rely on script.js globals
+    </script>
+  </body>
+</html>

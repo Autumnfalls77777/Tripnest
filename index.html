@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TripNest | Travel Planner & Booking</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Background layers -->
+    <div class="bg-sunset"></div>
+    <div class="bg-map"></div>
+    <div class="bg-noise"></div>
+
+    <!-- Header -->
+    <header class="header">
+      <a
+        href="index.html"
+        class="brand"
+        style="text-decoration: none; color: inherit"
+      >
+        <div class="brand-mark">TN</div>
+        <div class="brand-text">
+          <span class="brand-name">TripNest</span>
+          <span class="brand-sub">Travel • Booking • Stays</span>
+        </div>
+      </a>
+
+      <nav class="toplinks">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="signin" href="signin.html" id="authLink">
+          <i class="fa-solid fa-user"></i> Sign In
+        </a>
+      </nav>
+    </header>
+
+    <!-- HERO (NEW PATTERN) -->
+    <main class="hero2">
+      <!-- Left: Index -->
+      <aside class="hero-index">
+        <div class="index-line"></div>
+
+        <a href="#top" class="index-item active">
+          <span class="num">01</span>
+          <span class="txt">Home</span>
+        </a>
+
+        <a href="#about" class="index-item">
+          <span class="num">02</span>
+          <span class="txt">About</span>
+        </a>
+
+        <a href="#contact" class="index-item">
+          <span class="num">03</span>
+          <span class="txt">Contact</span>
+        </a>
+
+        <div class="index-note">
+          <i class="fa-solid fa-arrow-down"></i>
+          Scroll
+        </div>
+      </aside>
+
+      <!-- Center: Text -->
+      <section class="hero2-center" id="top">
+        <p class="micro-title">
+          <span class="dot"></span> A SMART TRAVEL PLANNER
+        </p>
+
+        <h1 class="hero2-title">
+          Discover your <span>next trip</span><br />
+          without the <span>stress</span>
+        </h1>
+
+        <p class="hero2-desc">
+          Plan routes, compare travel modes and find stays near your destination
+          — all in one place. Smart travel made simple.
+        </p>
+
+        <div class="hero2-actions">
+          <a class="btn2 primary" href="start-planning.html" id="planBtn">
+            Start Planning <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a class="btn2 primary" href="find-stays.html" id="stayBtn">
+            Explore Stays <i class="fa-solid fa-bed"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Right: Travel poster block -->
+      <section class="hero2-poster">
+        <div class="poster">
+          <div class="poster-bg"></div>
+
+          <div class="poster-top">
+            <span class="stamp coral">PASSPORT VERIFIED</span>
+            <span class="stamp teal">TOP DESTINATIONS</span>
+          </div>
+
+          <div class="poster-mid">
+            <p class="big-outline">TRAVEL</p>
+            <p class="poster-text">Plan • Compare • Book • Stay</p>
+          </div>
+
+          <div class="poster-bottom">
+            <div class="poster-chip">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <p class="chip-title">Smart Destinations</p>
+                <p class="chip-sub">Goa • Jaipur • Manali • Delhi</p>
+              </div>
+            </div>
+
+            <div class="poster-chip">
+              <i class="fa-solid fa-star"></i>
+              <div>
+                <p class="chip-title">Stay Finder</p>
+                <p class="chip-sub">Hotel photos • prices • ratings</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- floating stickers -->
+          <div class="float-tag t1">CHEAPEST</div>
+          <div class="float-tag t2">FASTEST</div>
+          <div class="float-tag t3">BEST RATED</div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="section-inner">
+        <p class="micro-title" style="margin-bottom:14px;">
+          <span class="dot"></span> BUILT FOR TRAVELLERS
+        </p>
+        <h2>What is TripNest?</h2>
+        <p style="margin-top:10px; font-size:16px; line-height:1.7; max-width:680px;">
+          TripNest is your all-in-one smart travel companion. Compare routes by road, rail, or air — and discover handpicked stays near your destination, all from a single dashboard.
+        </p>
+
+        <div class="feature-grid" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="feature">
+            <span class="icon"><i class="fa-solid fa-route"></i></span>
+            <h3>Route Compare</h3>
+            <p>Compare travel operators across road, rail, and air with live time &amp; availability.</p>
+          </div>
+
+          <div class="feature">
+            <span class="icon"><i class="fa-solid fa-ticket"></i></span>
+            <h3>Smart Booking</h3>
+            <p>Book flights and trains via official links, or reach road operators directly.</p>
+          </div>
+
+          <div class="feature">
+            <span class="icon"><i class="fa-solid fa-camera-retro"></i></span>
+            <h3>Stays with Photos</h3>
+            <p>Browse hotel cards with real photos, transparent pricing, and star ratings.</p>
+          </div>
+
+          <div class="feature">
+            <span class="icon" style="background:rgba(255,159,28,0.12);border-color:rgba(255,159,28,0.22);"><i class="fa-solid fa-wand-magic-sparkles" style="color:#FF9F1C;"></i></span>
+            <h3>Day-wise Plans</h3>
+            <p>Get complete itineraries with activities, dining picks, and travel tips per day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="section-inner contact-card">
+        <div class="contact-left">
+          <p class="micro-title" style="margin-bottom:10px;">
+            <span class="dot"></span> GET IN TOUCH
+          </p>
+          <h2>Contact</h2>
+          <p style="margin-top:8px; line-height:1.6; opacity:0.7; font-size:15px;">Reach out for queries,<br>feedback, or project suggestions.</p>
+        </div>
+        <div class="contact-right">
+          <div class="contact-item">
+            <p class="k"><i class="fa-regular fa-envelope" style="margin-right:5px;"></i>Gmail</p>
+            <p class="v">prateekr202@gmail.com</p>
+          </div>
+          <div class="contact-item">
+            <p class="k"><i class="fa-solid fa-phone" style="margin-right:5px;"></i>Phone</p>
+            <p class="v">9302988523</p>
+          </div>
+        </div>
+      </div>
+      <footer class="mini-footer">
+        <p style="opacity:0.6; font-size:13px;">&#169; 2026 TripNest &nbsp;&bull;&nbsp; Built with passion by <strong style="color:#FF9F1C;">Prateek Rai</strong></p>
+        <div class="socials">
+          <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/Autumnfalls77777/Travel-Planner-TRIPNEST-" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="#" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </footer>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+      // Sticky header shrink on scroll
+      const header = document.querySelector('.header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // Active nav index update on scroll
+      const sections = [
+        { id: 'top', item: document.querySelectorAll('.index-item')[0] },
+        { id: 'about', item: document.querySelectorAll('.index-item')[1] },
+        { id: 'contact', item: document.querySelectorAll('.index-item')[2] },
+      ];
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            sections.forEach(s => s.item && s.item.classList.remove('active'));
+            const match = sections.find(s => s.id === e.target.id);
+            if (match && match.item) match.item.classList.add('active');
+          }
+        });
+      }, { threshold: 0.4 });
+      document.querySelectorAll('#top, #about, #contact').forEach(el => observer.observe(el));
+
+      // Page-leave fade
+      document.querySelectorAll('a[href]').forEach(a => {
+        if (!a.href.startsWith('#')) {
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            const href = a.href;
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.25s ease';
+            setTimeout(() => { window.location = href; }, 260);
+          });
+        }
+      });
+    </script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="FkSb_OJCMTD0WGJbAHbuF";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+  </body>
+</html>

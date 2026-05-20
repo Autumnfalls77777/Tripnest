@@ -1,0 +1,42 @@
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# Sensitive backend config
+tripnest-backend/config/db.php
+
+# Database dumps
+*.sql
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Cache
+.cache/
+tmp/
+temp/
+
+# Build files
+dist/
+build/
+
+# Package locks (optional)
+# package-lock.json
+
+# Archives
+*.zip
+*.rar
+*.7z

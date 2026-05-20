@@ -1,0 +1,18 @@
+# ============================================================
+#  tripnest-backend/.htaccess
+#  Allows CORS preflight + blocks direct directory browsing
+# ============================================================
+
+Options -Indexes
+Options -MultiViews
+
+# Security headers
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "same-origin"
+
+# Block access to config files directly
+<FilesMatch "^db\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
